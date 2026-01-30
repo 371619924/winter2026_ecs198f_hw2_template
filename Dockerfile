@@ -3,7 +3,7 @@ FROM debian:bookworm
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# 2) Install prerequisites (wget/git/ca-certs/bzip2) for downloading & running Miniconda + cloning repo
+# 2) Install prerequisites (wget/git/ca-certs/bzip2) for downloading & running Miniconda and cloning repo
 RUN apt-get update && apt-get install -y --no-install-recommends \
       wget \
       git \
@@ -22,7 +22,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 # Put conda on PATH
 ENV PATH="${CONDA_DIR}/bin:${PATH}"
 
-# 4) Clone the repo into the root directory (filesystem root)
+# 4) Clone the repo into the root directory 
 RUN git clone https://github.com/dbarnett/python-helloworld /python-helloworld
 
 WORKDIR /python-helloworld
